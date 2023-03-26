@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.23)
+set(CMAKE_CXX_STANDARD 17)
+
+#project(ProblemSolvingWithSearch)
+project(PSWS)
+
+function(out_module_data I_TargetName I_HEADER_FILES I_SRC_FILES )
+    message(TargetName)
+    message(${TargetName})
+    message(HEADER_FILES)
+    foreach (_header_file ${HEADER_FILES})
+        message(STATUS "${_header_file}")
+    endforeach()
+    message(SRC_FILES)
+    foreach (_src_file ${SRC_FILES})
+        message(STATUS "${_src_file}")
+    endforeach()
+endfunction()
+
+include(GenerateExportHeader)
+include_directories(${CMAKE_BINARY_DIR}/exports)
+set(EXPORT_HEADER_DIR ${CMAKE_BINARY_DIR}/exports)
+set(RESOURCES_DIR ${CMAKE_BINARY_DIR}/resources)
+
+add_subdirectory(src)
